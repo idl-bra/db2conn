@@ -1,0 +1,30 @@
+{
+    "name": "idlogistics/db2conn",
+    "description": "Driver de conexão DB2 para Laravel usando PDO_ODBC (sem extensão ibm_db2), com suporte a Eloquent, Query Builder e Schema.",
+    "type": "library",
+    "license": "proprietary",
+    "keywords": ["laravel", "db2", "odbc", "as400", "ibmi", "eloquent"],
+    "require": {
+        "php": "^8.2",
+        "ext-pdo": "*",
+        "illuminate/database": "^11.0|^12.0|^13.0",
+        "illuminate/support": "^11.0|^12.0|^13.0"
+    },
+    "suggest": {
+        "ext-pdo_odbc": "Necessário em runtime para conectar ao DB2 via ODBC."
+    },
+    "autoload": {
+        "psr-4": {
+            "IdLogistics\\Db2Conn\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "IdLogistics\\Db2Conn\\Db2ServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
