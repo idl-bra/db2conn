@@ -15,26 +15,37 @@ um driver nativo: **Eloquent, Query Builder, paginação, transações e Schema 
 
 ## Instalação
 
-No `composer.json` do app:
-
-```json
-"repositories": [
-    { "type": "path", "url": "packages/idlogistics/db2conn", "options": { "symlink": true } }
-],
-"require": {
-    "idlogistics/db2conn": "@dev"
-}
-```
+### Via Composer (Packagist)
 
 ```bash
-composer update idlogistics/db2conn
+composer require idlogistics/db2conn
 ```
+
+### Via GitHub (VCS)
+
+Se preferir instalar diretamente do repositório:
+
+```bash
+composer require idlogistics/db2conn:dev-main \
+  --repository='{"type":"vcs","url":"https://github.com/idl-bra/db2conn.git"}'
+```
+
+### Após Instalação
 
 O service provider é registrado automaticamente (package discovery) e injeta a
-conexão `db2` em `database.connections`. Para customizar, publique o config:
+conexão `db2` em `database.connections`.
+
+**Publique os assets opcionais:**
 
 ```bash
+# Publicar configuração
 php artisan vendor:publish --tag=db2-config
+
+# Publicar dashboard de testes (opcional)
+php artisan vendor:publish --tag=db2-dashboard
+
+# Publicar rotas de testes (opcional)
+php artisan vendor:publish --tag=db2-routes
 ```
 
 ## Configuração
